@@ -2,7 +2,6 @@
 include_once 'database.php';
 $result = mysqli_query($conn,"SELECT * FROM employee");
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +21,10 @@ $result = mysqli_query($conn,"SELECT * FROM employee");
     <?php
     $i=0;
     while($row = mysqli_fetch_array($result)) {
+        if($i%2==0)
+            $classname="even";
+        else
+            $classname="odd";
         ?>
         <tr class="<?php if(isset($classname)) echo $classname;?>">
             <td><?php echo $row["userid"]; ?></td>
@@ -29,7 +32,7 @@ $result = mysqli_query($conn,"SELECT * FROM employee");
             <td><?php echo $row["last_name"]; ?></td>
             <td><?php echo $row["city_name"]; ?></td>
             <td><?php echo $row["email"]; ?></td>
-            <td><a href="delete-process.php?userid=<?php echo $row["userid"]; ?>">Delete</a></td>
+            <td><a href="update-process.php?userid=<?php echo $row[">Update</a></td>
         </tr>
         <?php
         $i++;
