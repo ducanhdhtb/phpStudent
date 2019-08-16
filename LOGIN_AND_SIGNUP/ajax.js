@@ -7,7 +7,7 @@ $(document).on('click','#btn-add',function(e) {
         type: "post",
         url: "signupuser.php",
         success: function(dataResult){
-            var dataResult = JSON.parse(dataResult);
+            // var dataResult = JSON.parse(dataResult);
             if(dataResult.statusCode==200){
                 alert('Data added successfully !');
                 location.reload();
